@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WhatsApp AI Bot — Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold text-xl">W</div>
+        <div>
+          <h1 class="text-lg font-semibold">WhatsApp AI Bot</h1>
+          <p class="text-sm text-gray-500">Auto-reply + AI fallback — modern dashboard</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-sm text-gray-600">Your product</div>
+        <button id="deployBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Deploy</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <section class="lg:col-span-2 space-y-6">
+      <!-- Controls card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-lg font-semibold">Intents (Fast rules)</h2>
+            <p class="text-sm text-gray-500">Keyword → reply rules. Fast and free (no OpenAI tokens).</p>
+          </div>
+          <button id="addIntent" class="text-sm bg-green-500 text-white px-3 py-1 rounded-md">+ Add</button>
+        </div>
+
+        <div id="intentsList" class="mt-4 space-y-3"></div>
+
+        <div class="mt-4 flex justify-end gap-2">
+          <button id="resetBtn" class="px-3 py-2 border rounded-md text-sm">Reset</button>
+          <button id="saveBtn" class="px-3 py-2 bg-indigo-600 text-white rounded-md text-sm">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Chat preview -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-semibold">Chat Simulator</h2>
+          <div class="text-sm text-gray-500">Demo only</div>
+        </div>
+        <div id="chatWindow" class="mt-4 h-64 overflow-auto bg-gray-50 border border-dashed border-gray-200 rounded-md p-3 space-y-3"></div>
+        <div class="mt-3 flex gap-2">
+          <input id="msgInput" class="flex-1 border rounded-md px-3 py-2" placeholder="Type a customer message..." />
+          <button id="sendMsg" class="bg-blue-600 text-white px-4 py-2 rounded-md">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="space-y-6">
+      <!-- Business card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <h3 class="font-medium">Business</h3>
+        <p id="bizName" class="text-sm text-gray-600 mt-1"></p>
+        <p id="bizSite" class="text-sm text-gray-500"></p>
+      </div>
+
+      <!-- Logs -->
+      <div class="bg-white rounded-xl shadow p-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-medium text-sm">Recent messages</h3>
+          <button id="refreshLogs" class="text-sm text-blue-600">Refresh</button>
+        </div>
+        <ul id="logs" class="mt-3 text-sm space-y-2 max-h-48 overflow-auto"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
