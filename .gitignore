@@ -24,7 +24,7 @@ Thumbs.db
 .idea/
 
 # Render or deployment
-render.yaml
+#render.yaml
 
 # Temp
 *.tmp

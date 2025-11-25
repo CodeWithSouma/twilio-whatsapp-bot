@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: twilio-whatsapp-ai-bot
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+
+    autoDeploy: true   # Enables CI/CD
+    branch: main
+
+    envVars:
+      - key: PORT
+        value: 10000
+
+      # Twilio
+      - key: TWILIO_ACCOUNT_SID
+        sync: false     # you will fill this in Render
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_WHATSAPP_FROM
+        sync: false
+
+      # OpenAI
+      - key: OPENAI_API_KEY
+        sync: false
+
+      # Business
+      - key: BUSINESS_NAME
+        value: "Souma AI Agency"
+      - key: BUSINESS_WEBSITE_URL
+        value: "https://souma.in"
